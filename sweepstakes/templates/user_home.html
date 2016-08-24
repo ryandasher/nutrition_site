@@ -1,0 +1,18 @@
+<h1>Nutrition Contest Giveaway</h1>
+<h5>Welcome, {{ user.username }}!</h5>
+
+{{ points_msg }}
+<form action="/?points" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Earn some points!" />
+</form>
+
+{% if winner %}
+  {{ winner }}
+  <form action="/?winner" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Claim your prize!" />
+  </form>
+{% endif %}
+
+{{ claimed }}
