@@ -24,7 +24,7 @@ class DrawingAdmin(admin.ModelAdmin):
         for prize_value in prize_values:
             if len(chance_list) == 0:
                 break
-            choice = randint(0, len(chance_list))
+            choice = randint(0, len(chance_list) - 1)
             user_id = chance_list[choice]
             winner = Winner(winner_id=user_id, value=prize_value)
             winner.save()
